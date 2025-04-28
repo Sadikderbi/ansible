@@ -1,9 +1,6 @@
 - name: Deploy built React app
   hosts: localhost
   become: true
-  
-  vars:
-    react_build_path: $WORKSPACE/* # Jenkins workspace
 
   tasks:
     - name: Install Nginx
@@ -33,7 +30,7 @@
 
     - name: Copy new React build
       copy:
-        src: "{{ react_build_path }}/"
+        src: "{{ artifact_path }}"
         dest: /var/www/html/
         owner: www-data
         group: www-data
