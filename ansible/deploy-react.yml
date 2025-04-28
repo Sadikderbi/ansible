@@ -1,6 +1,6 @@
 - name: Deploy built React app
   hosts: localhost
-  become: true
+  become: yes
   
   vars:
     react_build_path: /target/* # Jenkins workspace
