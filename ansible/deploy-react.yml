@@ -3,7 +3,7 @@
   become: yes
 
   vars:
-    react_build_path: /path/to/your/workspace/build  # Jenkins workspace
+    react_build_path: /target/* # Jenkins workspace
 
   tasks:
     - name: Install Nginx
