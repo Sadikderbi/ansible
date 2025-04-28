@@ -1,8 +1,6 @@
 - name: Deploy built React app
   hosts: localhost
-  become: yes
-  ansible_become_password : sqdik2003 
-
+  
   vars:
     react_build_path: /target/* # Jenkins workspace
 
