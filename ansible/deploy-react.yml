@@ -1,0 +1,40 @@
+- name: Deploy built React app
+  hosts: localhost
+  become: yes
+
+  vars:
+    react_build_path: /path/to/your/workspace/build  # Jenkins workspace
+
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Start and enable Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Remove old web files
+      file:
+        path: /var/www/html/
+        state: absent
+
+    - name: Create fresh web directory
+      file:
+        path: /var/www/html/
+        state: directory
+        owner: www-data
+        group: www-data
+        mode: '0755'
+
+    - name: Copy new React build
+      copy:
+        src: "{{ react_build_path }}/"
+        dest: /var/www/html/
+        owner: www-data
+        group: www-data
+        mode: '0755'
