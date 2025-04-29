@@ -28,16 +28,10 @@
         group: www-data
         mode: '0755'
 
-    - name: Récupérer le build depuis Jenkins
-      fetch:
-        src: /var/lib/jenkins/workspace/ansible_integration/build/
-        dest: /tmp/react-build/
-        flat: yes
-
-    - name: Copy new React build
-      copy:
-        src: /var/lib/jenkins/workspace/ansible_integration/build/
-        dest: /var/www/html/
-        owner: www-data
-        group: www-data
-        mode: '0755'
+    - name: Copy new React build using cp
+    shell: |
+      sudo cp -r /var/lib/jenkins/workspace/ansible_integration/build/* /var/www/html/ && \
+      sudo chown -R www-data:www-data /var/www/html/ && \
+      sudo chmod -R 755 /var/www/html/
+    args:
+      executable: /bin/bash
