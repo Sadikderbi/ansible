@@ -30,7 +30,7 @@
 
     - name: Copy new React build
       copy:
-        src: "{{ artifact_path }}"
+        src: /var/lib/jenkins/workspace/ansible_integration/build/
         dest: /var/www/html/
         owner: www-data
         group: www-data
