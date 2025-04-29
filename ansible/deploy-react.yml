@@ -28,6 +28,12 @@
         group: www-data
         mode: '0755'
 
+    - name: Récupérer le build depuis Jenkins
+      fetch:
+        src: /var/lib/jenkins/workspace/ansible_integration/build/
+        dest: /tmp/react-build/
+        flat: yes
+
     - name: Copy new React build
       copy:
         src: /var/lib/jenkins/workspace/ansible_integration/build/
