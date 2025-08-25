@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Velocity Kicks — Football Shoes</title>
+	<meta name="description" content="Modern, minimal football shoes store with a bold blue/red theme.">
+	<link rel="icon" href="/workspace/football-store/assets/favicon.svg" type="image/svg+xml">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/workspace/football-store/styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<div class="container">
+			<a class="brand" href="#">
+				<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 12c5.5-3 11.5-3 18 0-6.5 3-12.5 3-18 0Z" fill="currentColor"/><path d="M6 14.5c3.2 1.8 8.8 1.8 12 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+				<span>Velocity Kicks</span>
+			</a>
+			<nav class="nav">
+				<a href="#new" class="nav-link">New Arrivals</a>
+				<a href="#pro" class="nav-link">Pro</a>
+				<a href="#kids" class="nav-link">Kids</a>
+			</nav>
+			<button class="cart-button" id="openCart" aria-label="Open cart" aria-haspopup="dialog" aria-controls="cartDrawer">
+				<span>Cart</span>
+				<span class="cart-count" id="cartCount">0</span>
+			</button>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero">
+			<div class="container hero-inner">
+				<div class="hero-copy">
+					<h1>Own the Pitch</h1>
+					<p>Lightweight control. Explosive speed. Football shoes engineered for modern play — in bold blue and red.</p>
+					<a href="#grid" class="cta">Shop the Collection</a>
+				</div>
+				<div class="hero-art" aria-hidden="true">
+					<svg viewBox="0 0 600 360" class="shoe-art">
+						<defs>
+							<linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+								<stop offset="0%" stop-color="#0057ff"/>
+								<stop offset="100%" stop-color="#ff0033"/>
+							</linearGradient>
+						</defs>
+						<path d="M60 250c80-40 140-30 220-90 40-30 90-30 140-15 20 6 40 10 60 8-20 35-45 55-72 65-78 29-136 38-206 63-52 19-109 12-142-31z" fill="url(#grad)" opacity="0.9"/>
+						<circle cx="520" cy="100" r="6" fill="#ff0033"/>
+						<circle cx="540" cy="120" r="4" fill="#0057ff"/>
+					</svg>
+				</div>
+			</div>
+		</section>
+
+		<section id="grid" class="product-section">
+			<div class="container">
+				<header class="section-head">
+					<h2>Featured Boots</h2>
+					<div class="filters">
+						<button class="chip is-active" data-filter="all">All</button>
+						<button class="chip" data-filter="firm">Firm Ground</button>
+						<button class="chip" data-filter="soft">Soft Ground</button>
+						<button class="chip" data-filter="indoor">Indoor</button>
+					</div>
+				</header>
+
+				<ul class="grid" id="productGrid">
+					<!-- Products injected by script.js -->
+				</ul>
+			</div>
+		</section>
+	</main>
+
+	<dialog id="cartDrawer" class="cart-drawer" aria-label="Shopping cart">
+		<div class="cart-head">
+			<h3>Your Cart</h3>
+			<button id="closeCart" class="icon-btn" aria-label="Close cart">×</button>
+		</div>
+		<ul id="cartItems" class="cart-items"></ul>
+		<div class="cart-foot">
+			<div class="totals">
+				<span>Subtotal</span>
+				<strong id="cartSubtotal">$0</strong>
+			</div>
+			<button class="checkout-btn">Checkout</button>
+		</div>
+	</dialog>
+
+	<footer class="site-footer">
+		<div class="container">
+			<p>© <span id="year"></span> Velocity Kicks. Play Bold.</p>
+		</div>
+	</footer>
+
+	<script src="/workspace/football-store/script.js" defer></script>
+</body>
+</html>
